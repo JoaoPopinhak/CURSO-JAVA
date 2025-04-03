@@ -5,7 +5,7 @@ public class ContaBancariaVoid {
 
 	public static void main(String[] args) {
 		
-		ArrayList<ContaBancariaClass>contas = new ArrayList<>();
+		ArrayList<ContaBancariaClass>ContaBancariaArray = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in);
 		 // Istanciar (criar novo objeto) no 1 = criar novo objeto função criada para criar uma nova conta
 		
@@ -31,10 +31,13 @@ public class ContaBancariaVoid {
 				
 				System.out.println("Parabéns, sua nova conta foi registrada!\n");
 				
-				contas.add(contabancaria);
+				ContaBancariaArray.add(contabancaria);
 				contabancaria.exibenomeconta();
 				contabancaria.exibesaldo();	
-				System.out.println(contas.size());
+				
+				System.out.println(ContaBancariaArray.size());
+				System.out.println(ContaBancariaArray.toString());
+				System.out.println(ContaBancariaArray.get(0));
 				
 			} //else if (opcao == 2) {
 				
