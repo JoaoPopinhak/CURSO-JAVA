@@ -11,7 +11,7 @@ public class ContaBancariaVoid {
 		
 		while (true) {
 			
-			System.out.println("Clica em uma das opções informadas abaixo:\n"
+			System.out.println("Clica em uma das opções informadas abaixo:\n\n"
 					+ "Digite 1 para criar uma nova conta bancaria\n"
 					+ "Digite 2 para depositar um valor na conta\n"
 					+ "Digite 3 para sacar um valor da conta\n"
@@ -19,7 +19,7 @@ public class ContaBancariaVoid {
 					+ "Digite 5 para exibir suas contas cadastradas e o saldo de cada conta\n");
 			
 			int opcao = scanner.nextInt();
-			
+			scanner.close();
 			if (opcao == 1) {
 				ContaBancariaClass contabancaria = new ContaBancariaClass();
 				
@@ -44,7 +44,7 @@ public class ContaBancariaVoid {
 				System.out.println("Informe qual conta bancaria deseja efetuar o deposito: \n");
 				
 				for (int i = 0; i < ContaBancariaArray.size(); i++) {	
-					System.out.println(i + " CONTA = " + ContaBancariaArray.get(i).nomeconta + " SALDO = " + ContaBancariaArray.get(i).saldo +"\n");	
+					System.out.println(i + " CONTA : " + ContaBancariaArray.get(i).nomeconta + " SALDO : " + ContaBancariaArray.get(i).saldo);	
 				}
 				
 				ContaBancariaClass contabancaria = ContaBancariaArray.get(scanner.nextInt());	// escolhendo a conta 
@@ -69,6 +69,7 @@ public class ContaBancariaVoid {
 				
 				contabancaria.exibenomeconta();
 				contabancaria.exibesaldo();
+				
 			} else if (opcao == 4) {
 				System.out.println("Informe qual a conta de origem para transferencia");
 				
@@ -76,9 +77,22 @@ public class ContaBancariaVoid {
 					System.out.println(ContaBancariaArray.get(i).nomeconta + "SALDO =" + ContaBancariaArray.get(i).saldo);
 				}
 				
-			
+				ContaBancariaClass contabancaria = ContaBancariaArray.get(scanner.nextInt());
+				
+				System.out.println("Digite o valor da transferencia");
+				contabancaria.transfere(contabancaria, scanner.nextDouble());
+				
+				
+				
+			}else if (opcao == 5) {
+				
+				for(int i = 0; i < ContaBancariaArray.size(); i++) {
+					System.out.println(ContaBancariaArray.get(i).nomeconta + "SALDO =" + ContaBancariaArray.get(i).saldo);
+				}
+				
 			}
 			
+			
 		}	
-	}
+	} 
 }
