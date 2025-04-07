@@ -5,9 +5,13 @@ public class ContaBancariaVoid {
 
 	public static void main(String[] args) {
 		
-		ArrayList<ContaBancariaClass>ContaBancariaArray = new ArrayList<>();
+		ArrayList<ContaBancariaClass> contasBancarias = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in);
 		 // Istanciar (criar novo objeto) no 1 = criar novo objeto função criada para criar uma nova conta
+		
+		//TODO: Edição de contas
+		//Validação para cotas repetidas
+		//Validacao de transferencia, deposito e saque
 		
 		while (true) {
 			
@@ -19,7 +23,7 @@ public class ContaBancariaVoid {
 					+ "Digite 5 para exibir suas contas cadastradas e o saldo de cada conta\n");
 			
 			int opcao = scanner.nextInt();
-			scanner.close();
+			
 			if (opcao == 1) {
 				ContaBancariaClass contabancaria = new ContaBancariaClass();
 				
@@ -31,9 +35,11 @@ public class ContaBancariaVoid {
 				
 				System.out.println("Parabéns, sua nova conta foi registrada!\n");
 				
-				ContaBancariaArray.add(contabancaria);
-				contabancaria.exibenomeconta();
-				contabancaria.exibesaldo();	
+				contasBancarias.add(contabancaria);
+//				contabancaria.exibenomeconta();
+//				contabancaria.exibesaldo();	
+				
+				System.out.println(contabancaria);
 				
 				//System.out.println(ContaBancariaArray.size());
 				//System.out.println(ContaBancariaArray.toString());
@@ -43,11 +49,11 @@ public class ContaBancariaVoid {
 				
 				System.out.println("Informe qual conta bancaria deseja efetuar o deposito: \n");
 				
-				for (int i = 0; i < ContaBancariaArray.size(); i++) {	
-					System.out.println(i + " CONTA : " + ContaBancariaArray.get(i).nomeconta + " SALDO : " + ContaBancariaArray.get(i).saldo);	
+				for (int i = 0; i < contasBancarias.size(); i++) {	
+					System.out.println(i + " CONTA : " + contasBancarias.get(i).nomeconta + " SALDO: " + contasBancarias.get(i).saldo + "\n");	
 				}
 				
-				ContaBancariaClass contabancaria = ContaBancariaArray.get(scanner.nextInt());	// escolhendo a conta 
+				ContaBancariaClass contabancaria = contasBancarias.get(scanner.nextInt());	// escolhendo a conta 
 				
 				System.out.println("Digite o valor que deseja depositar: ");
 				contabancaria.deposita(scanner.nextDouble());
@@ -56,13 +62,14 @@ public class ContaBancariaVoid {
 				contabancaria.exibesaldo();
 				
 			} else if (opcao == 3) {
+				
 				System.out.println("Informe qual conta bancaria deseja efetuar o saque: ");
 				
-				for(int i = 0; i < ContaBancariaArray.size(); i++) {
-					System.out.println(ContaBancariaArray.get(i).nomeconta + "SALDO =" + ContaBancariaArray.get(i).saldo);
+				for(int i = 0; i < contasBancarias.size(); i++) {
+					System.out.println(i + " CONTA: " +contasBancarias.get(i).nomeconta + " SALDO: " + contasBancarias.get(i).saldo + "\n");
 				}
 				
-				ContaBancariaClass contabancaria = ContaBancariaArray.get(scanner.nextInt());
+				ContaBancariaClass contabancaria = contasBancarias.get(scanner.nextInt());
 				
 				System.out.println("Digite o valor que deseja sacar: ");
 				contabancaria.saque(scanner.nextDouble());
@@ -71,27 +78,27 @@ public class ContaBancariaVoid {
 				contabancaria.exibesaldo();
 				
 			} else if (opcao == 4) {
+				
 				System.out.println("Informe qual a conta de origem para transferencia");
 				
-				for(int i = 0; i < ContaBancariaArray.size(); i++) {
-					System.out.println(ContaBancariaArray.get(i).nomeconta + "SALDO =" + ContaBancariaArray.get(i).saldo);
+				for(int i = 0; i < contasBancarias.size(); i++) {
+					System.out.println(i + " CONTA: " + contasBancarias.get(i).nomeconta + " SALDO: " + contasBancarias.get(i).saldo);
 				}
 				
-				ContaBancariaClass contabancaria = ContaBancariaArray.get(scanner.nextInt());
+				ContaBancariaClass contabancaria = contasBancarias.get(scanner.nextInt());
 				
-				System.out.println("Digite o valor da transferencia");
-				contabancaria.transfere(contabancaria, scanner.nextDouble());
+				System.out.println("Digite a conta de destino, e o valor que deseja transferir: ");
+				contabancaria.transfere(contasBancarias.get(scanner.nextInt()), scanner.nextDouble());
 				
-				
+				System.out.println("Transferência realizada com sucesso!\n");
 				
 			}else if (opcao == 5) {
 				
-				for(int i = 0; i < ContaBancariaArray.size(); i++) {
-					System.out.println(ContaBancariaArray.get(i).nomeconta + "SALDO =" + ContaBancariaArray.get(i).saldo);
+				for(int i = 0; i < contasBancarias.size(); i++) {
+					System.out.println(contasBancarias.get(i));
 				}
 				
 			}
-			
 			
 		}	
 	} 
