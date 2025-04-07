@@ -21,10 +21,16 @@ public class ContaBancariaClass {
 		saldo -= valor;
 	}
 	
-	void transfere (ContaBancariaClass nomeconta, double valor) {
+	void transfere (ContaBancariaClass ContaBancariaArray, double valor) {
 		this.saque(valor);
-		nomeconta.deposita(valor);
+		ContaBancariaArray.deposita(valor);
 		
 	}
+
+	@Override
+	public String toString() {
+		 return "CONTA: " + this.nomeconta + " SALDO: " + this.saldo + "\n";
+	}
+	
 	
 }
