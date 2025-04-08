@@ -25,6 +25,8 @@ public class ContaBancariaVoid {
 			int opcao = scanner.nextInt();
 			
 			if (opcao == 1) {
+				int voltar = 1;
+				while (voltar != 0) {
 				ContaBancariaClass contabancaria = new ContaBancariaClass();
 				
 				System.out.println("Digite o nome da sua nova conta: ");
@@ -36,15 +38,12 @@ public class ContaBancariaVoid {
 				System.out.println("Parabéns, sua nova conta foi registrada!\n");
 				
 				contasBancarias.add(contabancaria);
-//				contabancaria.exibenomeconta();
-//				contabancaria.exibesaldo();	
 				
 				System.out.println(contabancaria);
 				
-				//System.out.println(ContaBancariaArray.size());
-				//System.out.println(ContaBancariaArray.toString());
-				//System.out.println(ContaBancariaArray.get(0).nomeconta + "\n" + ContaBancariaArray.get(0).saldo );
-				
+				System.out.println("Para voltar digite 0, para continuar cadastrando digite qualquer tecla");
+				voltar = scanner.nextInt();
+				}
 			} else if (opcao == 2) {
 				
 				System.out.println("Informe qual conta bancaria deseja efetuar o deposito: \n");
@@ -53,7 +52,7 @@ public class ContaBancariaVoid {
 					System.out.println(i + " CONTA : " + contasBancarias.get(i).nomeconta + " SALDO: " + contasBancarias.get(i).saldo + "\n");	
 				}
 				
-				ContaBancariaClass contabancaria = contasBancarias.get(scanner.nextInt());	// escolhendo a conta 
+				ContaBancariaClass contabancaria = contasBancarias.get(scanner.nextInt());
 				
 				System.out.println("Digite o valor que deseja depositar: ");
 				contabancaria.deposita(scanner.nextDouble());
