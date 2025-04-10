@@ -6,9 +6,7 @@ public class ContaBancariaVoid {
 	public static void main(String[] args) {
 		
 		ArrayList<ContaBancariaClass> contasBancarias = new ArrayList<>();
-		Scanner scanner = new Scanner(System.in);
-		 // Istanciar (criar novo objeto) no 1 = criar novo objeto função criada para criar uma nova conta
-		
+		Scanner scanner = new Scanner(System.in);		
 		//TODO: Edição de contas
 		//Validação para cotas repetidas
 		//Validacao de transferencia, deposito e saque
@@ -96,6 +94,14 @@ public class ContaBancariaVoid {
 				for(int i = 0; i < contasBancarias.size(); i++) {
 					System.out.println(contasBancarias.get(i));
 				}
+				
+			}else if(opcao == 6) {
+				System.out.println("Escolha a conta que deseja editar");
+				for(int i = 0; i < contasBancarias.size(); i++) {
+					System.out.println(i + "CONTA: " + contasBancarias.get(i).nomeconta + "SALDO: " + contasBancarias.get(i).saldo);
+				}
+				
+				ContaBancariaClass contabancaria = contasBancarias.get(scanner.nextInt());
 				
 			}
 			
