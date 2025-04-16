@@ -23,25 +23,30 @@ public class ContaBancariaVoid {
 			int opcao = scanner.nextInt();
 			
 			if (opcao == 1) {
-				int voltar = 1;
-				while (voltar != 0) {
+			
 				ContaBancariaClass contabancaria = new ContaBancariaClass();
-				
-				System.out.println("Digite o nome da sua nova conta: ");
-				contabancaria.nomeconta = scanner.next();
-				
-				System.out.println("Digite o saldo inical da sua conta: ");
-				contabancaria.saldo = scanner.nextDouble();
-				
-				System.out.println("Parabéns, sua nova conta foi registrada!\n");
-				
-				contasBancarias.add(contabancaria);
-				
-				System.out.println(contabancaria);
-				
-				System.out.println("Para voltar digite 0, para continuar cadastrando digite qualquer tecla");
-				voltar = scanner.nextInt();
-				}
+					
+					System.out.println("Digite o nome da sua nova conta: ");
+					contabancaria.nomeconta = scanner.next();
+					
+					System.out.println("Digite o saldo inical da sua conta: ");
+					contabancaria.saldo = scanner.nextDouble();
+					
+					boolean nomeJaExiste = false;
+					
+					for (int i = 0; i < contasBancarias.size(); i++) {
+						if(contabancaria.nomeconta.equalsIgnoreCase(contasBancarias.get(i).nomeconta)){
+							nomeJaExiste = true;
+							break;
+						}
+					}
+					if(nomeJaExiste) {
+						System.out.println("Esse nome já existe. Tente novamente com outro nome.");
+					} else {
+						System.out.println("Parabéns! Sua nova conta foi adicionada.\n" + contabancaria);
+						contasBancarias.add(contabancaria);
+					}
+					
 			} else if (opcao == 2) {
 				
 				System.out.println("Informe qual conta bancaria deseja efetuar o deposito: \n");
