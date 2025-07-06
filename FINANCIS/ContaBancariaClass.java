@@ -18,15 +18,10 @@ public class ContaBancariaClass {
 	}
 	
 	void saque (double valor) {
-		if(saldo >= valor) {
-			saldo -= valor;
-		}else {
-			System.out.println("Saldo insuficiente\nTente novamente.\n");
-		}
+		saldo -= valor;
 	}
 	
 	void transfere (ContaBancariaClass ContaBancariaArray, double valor) {
-		if (this.saldo >= valor)
 		this.saque(valor);
 		ContaBancariaArray.deposita(valor);
 		
