@@ -8,11 +8,11 @@ PROTECTED : acessivel somente a subclasses (filhos da classe)
 PUBLIC : acessivel em qualquer lugar
 */
 	
-	private String nome;
+	/*private*/public String nome;
 	String nome1;
 	public String nome2;
 	
-	public String getNome(){ //segue o mesmo processo de modifcador de acesso
+	public String getNome(){ //METODOS segue o mesmo processo de modifcador de acesso
 		return nome;
 	}
 
