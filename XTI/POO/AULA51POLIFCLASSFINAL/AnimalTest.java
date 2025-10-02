@@ -1,4 +1,4 @@
-package POO.AULA49POLISOBREMET;
+package POO.AULA51POLIFCLASSFINAL;
 /**
  * Como subistituir fluxos condicionais por poliformismo
  */
@@ -13,7 +13,7 @@ public class AnimalTest {
 		
 		Cachorro dog = new Cachorro();
 		Galinha corico = new Galinha();
-		Animal generico = new Animal();
+		//Animal generico = new Animal();//Aprtir dessa aula a classe animal não pode ser utilizuada (istanciada)
 		
 		
 		dog.equals(corico);//Equals compara dois objetos e verifica se os valores são iguais
@@ -23,7 +23,7 @@ public class AnimalTest {
 		
 		dog.barulho();
 		corico.barulho();
-		generico.barulho();
+		//generico.barulho();
 		
 		
 		barulho(dog);
