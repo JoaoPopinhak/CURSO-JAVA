@@ -1,8 +1,11 @@
 package POO.AULA46ENUMCONST;
 
+
+
 public class EnumTeste {
 	
 	public static final double PI = 3.14;
+	
 	public static void andar(Medida medida, int total) {
 		if(medida == Medida.M) {
 			//... tal coisa
@@ -11,7 +14,16 @@ public class EnumTeste {
 		}
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
+		
+		System.out.println(PecasXadrex.BISPO);
 		
 		
 		for(Medida m : Medida.values()) {
